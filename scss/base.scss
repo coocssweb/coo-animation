@@ -1,0 +1,28 @@
+@import "base/normalize";
+body{
+    font-family: -apple-system, Helvetica Neue, Roboto, Arial, PingFang SC, sans-serif;
+    text-rendering: optimizeLegibility;
+    font-smoothing: antialiased;
+    line-height: 1.2;
+    color: #000;
+    position: relative;
+    font-size: 14PX;
+}
+
+
+.clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    line-height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+.page{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+}
