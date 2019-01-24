@@ -12,6 +12,7 @@
     <div class="nav">
         <a href="javascript:;" class="nav-item nav-item--active" data-key="logo">让你的Logo图片发光，增加一点高级感觉</a>
         <a href="javascript:;" class="nav-item" data-key="3dFlip">3D图片翻转动画效果</a>
+        <a href="javascript:;" class="nav-item" data-key="loadingText">Loading...后面的三个点可以动起来吗？</a>
         <a href="javascript:;" class="nav-item" data-key="springball">可爱的自由落体反弹效果</a>
         <a href="javascript:;" class="nav-item" data-key="snow">又见雪飘过，飘于深深记忆中</a>
         <a href="javascript:;" class="nav-item" data-key="candyButton">让你的按钮动起来，吸引用户的圆球</a>
@@ -34,6 +35,9 @@
     var domIframe = document.querySelector('#iframe');
     document.querySelector('.nav').addEventListener('click', function (e) {
         var domTarget = e.target;
+        if (!domTarget.classList.contains('nav-item')) {
+            return false;
+        }
         if (domTarget.classList.contains('nav-item--active')) {
             return false;
         }

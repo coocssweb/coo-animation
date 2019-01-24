@@ -26,5 +26,11 @@ module.exports = [
         path: resolve('../src', 'logo/index.js'),
         filename: 'logo.html',
         template: resolve('../src', 'logo/index.html'),
+    },
+    {
+        name: 'loadingText',
+        path: resolve('../src', 'loadingText/index.js'),
+        filename: 'loadingText.html',
+        template: resolve('../src', 'loadingText/index.html'),
     }
 ];

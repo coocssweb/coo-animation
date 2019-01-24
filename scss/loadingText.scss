@@ -1,0 +1,39 @@
+@import "base";
+body, html{
+    height: 100%;
+}
+.page{
+    height: 100%;
+}
+
+@keyframes loadingDotting {
+    0%{
+        content: ''
+    }
+    25%{
+        content: '.'
+    }
+    50%{
+        content: '..'
+    }
+    75%{
+        content: '...'
+    }
+    100%{
+        content: '...'
+    }
+}
+
+.loading{
+    position: absolute;
+    text-align: center;
+    font-size: 40px;
+    width: 100%;
+    top: 50%;
+    &-dotting{
+        &:before{
+            content: '...';
+            animation: loadingDotting 1.2s linear infinite;
+        }
+    }
+}
