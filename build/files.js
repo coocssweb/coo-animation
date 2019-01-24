@@ -20,5 +20,11 @@ module.exports = [
         path: resolve('../src', 'springBall/index.js'),
         filename: 'springball.html',
         template: resolve('../src', 'springBall/index.html'),
+    },
+    {
+        name: 'logo',
+        path: resolve('../src', 'logo/index.js'),
+        filename: 'logo.html',
+        template: resolve('../src', 'logo/index.html'),
     }
 ];
