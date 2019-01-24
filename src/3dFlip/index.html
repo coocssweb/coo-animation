@@ -14,10 +14,32 @@
 </head>
 <body>
 <div class="page">
-    <div class="ball-wrapper">
-        <div class="ball"></div>
-        <div class="ball-shadow"></div>
+    <div class="gallery">
+        <div class="gallery-front">
+            <img src="//coocssweb.github.io/dist/images/kobe.jpg" class="gallery-photo" />
+        </div>
+        <div class="gallery-back">
+            <div class="gallery-info">
+                科比·比恩·布莱恩特（英语：Kobe Bean Bryant，1978年8月23日－）<br /><br />生于美国费城，已退役NBA职业篮球运动员，NBA历史上最伟大球员之一，绰号“小飞侠”、“黑曼巴 ”（THE MAMBA）[1]、“老大”。<br /><br />
+                身高6英尺6英寸（198公分），体重212磅，主打位置为得分后卫。
+                <a href="javascript:;" class="gallery-more">了解更多</a>
+            </div>
+        </div>
     </div>
+    <a href="javascript:;" class="btn-rotate">翻转</a>
 </div>
+<script type="text/javascript">
+    var domGallery = document.querySelector('.gallery');
+    document.querySelector('.btn-rotate').onclick = function () {
+        if (domGallery.classList.contains('animate')) {
+            domGallery.classList.remove('animate');
+            domGallery.classList.add('animate-toggle');
+        } else {
+            domGallery.classList.remove('animate-toggle');
+            domGallery.classList.add('animate');
+        }
+
+    };
+</script>
 </body>
 </html>

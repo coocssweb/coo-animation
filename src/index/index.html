@@ -10,19 +10,46 @@
 </div>
 <div class="layout clearfix">
     <div class="nav">
-        <a href="javascript:;" class="nav-item nav-item--active">3D图片翻转动画效果</a>
-        <a href="javascript:;" class="nav-item">让你的Logo图片发光，增加一点高级感觉</a>
-        <a href="javascript:;" class="nav-item">又见雪飘过，飘于深深记忆中</a>
-        <a href="javascript:;" class="nav-item">可爱的自由落体反弹效果</a>
-        <a href="javascript:;" class="nav-item">让你的按钮动起来，吸引用户的圆球</a>
-        <a href="javascript:;" class="nav-item">svg实现线条感的</a>
+        <a href="javascript:;" class="nav-item nav-item--active" data-key="3dFlip">3D图片翻转动画效果</a>
+        <a href="javascript:;" class="nav-item" data-key="springball">可爱的自由落体反弹效果</a>
+        <a href="javascript:;" class="nav-item" data-key="logo">让你的Logo图片发光，增加一点高级感觉</a>
+        <a href="javascript:;" class="nav-item" data-key="snow">又见雪飘过，飘于深深记忆中</a>
+        <a href="javascript:;" class="nav-item" data-key="candyButton">让你的按钮动起来，吸引用户的圆球</a>
+        <a href="javascript:;" class="nav-item" data-key="lineButton">svg实现线条感的</a>
     </div>
     <div class="content">
         <div class="preview">
             <h2 class="preview-title">浏览效果</h2>
-            <iframe class="iframe" frameborder="none" width="375" height="667" src="http://localhost:9099/springball.html"></iframe>
+            <iframe class="iframe" id="iframe" frameborder="none" width="375" height="667" src="3dFlip.html"></iframe>
+            <div class="loading">
+                <span class="loading-icon">
+
+                </span>
+            </div>
         </div>
     </div>
 </div>
+<script type="text/javascript">
+    var domLoading = document.querySelector('.loading');
+    var domIframe = document.querySelector('#iframe');
+    document.querySelector('.nav').addEventListener('click', function (e) {
+        var domTarget = e.target;
+        if (domTarget.classList.contains('nav-item--active')) {
+            return false;
+        }
+        domLoading.classList.remove('hidden');
+        document.querySelector('.nav-item--active').classList.remove('nav-item--active');
+        domTarget.classList.add('nav-item--active');
+        var url = domTarget.getAttribute('data-key');
+        domIframe.setAttribute('src', url + '.html');
+    });
+
+    domIframe.onload = function () {
+        setTimeout(() => {
+            domLoading.classList.add('hidden');
+        }, 300);
+    };
+
+</script>
 </body>
 </html>
