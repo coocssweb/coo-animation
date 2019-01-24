@@ -14,5 +14,11 @@ module.exports = [
         path: resolve('../src', '3dFlip/index.js'),
         filename: '3dFlip.html',
         template: resolve('../src', '3dFlip/index.html'),
+    },
+    {
+        name: 'springBall',
+        path: resolve('../src', 'springBall/index.js'),
+        filename: 'springball.html',
+        template: resolve('../src', 'springBall/index.html'),
     }
 ];
