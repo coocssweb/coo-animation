@@ -19,9 +19,9 @@ module.exports = function (mode) {
             'process.env.API': configMode.api
         }),
         // css tree-shaking
-        new PurifyCSSPlugin({
-            paths: glob.sync(resolve('../*.html')),
-        })
+        // new PurifyCSSPlugin({
+        //     paths: glob.sync(resolve('../*.html')),
+        // })
     ];
     for (let index = 0; index < _files.length; index++) {
         let file = _files[index];
@@ -46,10 +46,10 @@ module.exports = function (mode) {
         cache: true,
         entry: entry,
         output: {
-            path: resolve('../dist'),
+            path: resolve('../../coocssweb.github.io/animation'),
             publicPath: configMode.publicPath,
-            filename: mode === 'development' ? '[name].js' : '[name].[chunkhash].js',
-            chunkFilename: mode === 'development' ?  '[name].js' : '[name].[chunkhash].js'
+            filename: !configMode.fileHash ? '[name].js' : '[name].[chunkhash].js',
+            chunkFilename: !configMode.fileHash ?  '[name].js' : '[name].[chunkhash].js'
         },
         module: {
             rules: [
@@ -80,11 +80,11 @@ module.exports = function (mode) {
                 },
                 {
                     test: /\.(png|jpg|gif|svg)$/,
-                    loader: `url-loader?limit=1&name=${configMode.publicPath}images/${configMode.env === 'development' ? '[name]' : '[name].[hash:8]'}.[ext]`
+                    loader: `url-loader?limit=1&name=${configMode.publicPath}images/${!configMode.fileHash ? '[name]' : '[name].[hash:8]'}.[ext]`
                 },
                 {
                     test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
-                    loader: `file-loader?name=${configMode.publicPath}fonts/${configMode.env === 'development' ? '[name]' : '[name].[hash:8]'}.[ext]`
+                    loader: `file-loader?name=${configMode.publicPath}fonts/${!configMode.fileHash ? '[name]' : '[name].[hash:8]'}.[ext]`
                 },
                 {
                     test: /\.html$/,
@@ -136,7 +136,7 @@ module.exports = function (mode) {
         // 抽离css，命名采用contenthash
         webpackConfig.plugins.push(
             new miniCssExtractPlugin({
-                filename: 'css/[name].[contenthash:8].css'
+                filename: !configMode.fileHash ? 'css/[name].css' : 'css/[name].[contenthash:8].css'
             })
         );
 

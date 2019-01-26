@@ -21,3 +21,19 @@ https://coocssweb.github.io/animation/
 * **又见雪飘过，飘于深深记忆中**
 * **球球反弹**
 * **糖果按钮**
+
+
+# How to install
+这个页面基于webpack4.0 搭建的多页前端工程；<br />
+```
+// 安装依赖
+npm install
+// 本地开发
+npm start
+// 代码构建
+npm run build
+```
+
+本地访问<br />
+http://localhost:9099
+
